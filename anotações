@@ -1,0 +1,28 @@
+chmod 600 key.pem
+
+#!/bin/bash
+sudo su
+curl https://releases.rancher.com/install-docker/19.03.sh | sh
+usermod -aG docker ubuntu
+
+
+
+Rancher
+
+custom
+
+ingress nginx disabled
+
+sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run rancher/rancher-agent:v2.4.3 --server https://rancher.britosoftware.com.br --token wmqpdzhqq2s75jfq5twn4hzx5jgq7sl95tgrt4cmh84lv9cz7j298q --ca-checksum 3ddf914402aefa3b500a54821cc9f863619ac1a3dd5fe5e77d29ce7ac24cf571 --node-name k8s-1 --etcd --controlplane --worker
+
+
+
+Cluster
+
+clicar rem Kubconfig files
+
+Pegar os nós
+kubectl get nodes
+
+
+kubectl get pods -n kube-system
